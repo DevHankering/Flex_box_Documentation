@@ -1,0 +1,196 @@
+
+
+
+
+            <~~~~~~~~~~~~`````````````//////////FLEX-BOX//////////`````````````~~~~~~~~~~~~>
+
+        --> determine which elements you want to control with flexbox.
+        --> put them inside a container.
+        --> Set the display property of the container to flex and you will see that every div or any other element will be aligned
+            leftside inside the container emediatly without taking the whole width.
+        --> when you say display:flex into the container. it put every element inside the container and puts them according to their content size
+            inside it into a row one by one like an span element.
+
+FLEX-FLOW:-
+        --> flex-flow:column;	--> it will put all container's                    flex-flow:row/column/row-reverse/column-reverse;
+            element in a conlumn instead of row.
+        --> flex-flow:row;  --> this is the default property of flex-box
+                                that's why all container's element are in
+                                a row not in a column.
+        --> flex-flow:row-reverse; --> this puts all the elements from right to left
+                                       in a row instead of from left to right.
+        --> flex-flow:column-reverse; --> this puts all the elements from bottom to 
+                                          top instead of top to bottom in column.
+        NOTE:-  If (flex-flow:row) -->  the main axis is horizontal & the cross axis is vertical.
+                If (flex-flow:column) --> the main axis is vertical & the cross axis is horizontal.
+FLEX-WRAP:-       
+        --> by default, all flex-box containers are single line containers meaning the flex elements will always be displayed in one single line.
+            and if you have many items, they will not wrap to the next line when there isn't enough space for them inside the container, they will
+            kind of overflow. which is not good for responsive design. we want it to wrap to the next line when there is not enough space for them.
+            so to make that happen we use, flex-wrap: wrap;                              ==>flex-wrap:wrap/wrap-reverse;
+            you can also use flex-wrap:wrap-reverse; which reverses the lines.
+
+       JUSTIFY-CONTENT:- 
+                         --> only effects the main axis. it is applied to the container.
+                         --> basically what justify content does is, it controls how the flex elements willd deal with the remaining space or in other
+                             words how remaining space will be distributed around the elements. So justify content won't do anything if your continer
+                             has no free space. so you need to have space to use this property. now look at its property.
+                         --> it has five properties.
+                          i):- FLEX-START(the default):- align items to the beginning of the flex-container.
+                        ii):- FLEX-END:- align items to the end of flex container.
+                        iii):- CENTER:- CENTERS THE CONTENT INSIDE THE FLEX CONTAINER.
+                        IV):- SPACE-BETWEEN:- seperates the content with equal spaces with no spaces at the beginning or at the end of the container.
+                        V):- SPACE-AROUND:- seperates the content with equal spaces and add spaces at the beginning and at the end of the container.
+ 
+                  NOTE:- 
+                          --> for row-reverse and column-reverse:- justify-content works the oposite way but the same way.
+
+       ALIGN-ITEMS:- 
+                     the main difference between justify-content and align-items is that justify-content controls the elements along the main axis
+                     but align-items controls them along the cross axis. 
+                     the other difference is that the values are a little bit different from the values that justify-content uses.
+                     --> align-items have 4 values.
+                     i):- FLEX-START:- aligns items along the cross axis to the start of the flex-container.
+                     ii):- FLEX-END:- align items along the cross axis to the end of flex container.
+                     iii):- CENTER:- centers the content inside the flex container along the cross axis.
+                     iV):- STRETCH(the default):- streches the elements to fill up the container.
+
+      ALIGN-SELF:-
+                  align-items and align-self are similar in-
+                                                            1- both work on the cross axis.
+                                                            2- they accepts the same value.
+                  they are different in- 
+                                         1- align self affects a single flex element only
+                                         2- align items affect all the children of the flex container.
+
+     ALIGN-CONTENT:- 
+                    --> align-content is used when you have multiple lines of elements.
+                    --> align-content controls how these multiple lines are displayed in our container.
+                    --> flex-wrap is used to put elements inside the container when we do not have enough sapce but you can control how these
+                        lines will  be shown through align-content.
+                    --> it has 5 properties.
+                                            I) flex-start;
+                                           II) flex-end;
+                                          III) center;
+                                           IV) space-around;
+                                            V) space-between;
+                   --> every line is taken as an element and works just like justify-content in cross axis.
+      ORDER:-
+                   --> we can control the order of the flex items through order property.
+                   --> default value for the order property is 0.
+                   --> order is like gravity for items. if given -1, then the property will go above every other elements and
+                       if given 1, that elements will go at the bottom . so can give any number as order's value like 5 or 6 or 99 etc.
+                   
+      FLEX-GROW:-
+                  --> flex-grow has value like 1,2,3 etc.
+                  --> it is used to determine how much the flex item will grow relative to the rest of the flex-items inside the container.
+                  --> the default value for flex-grow is 0.
+                  --> the property is given to flex-items.
+                  --> first of all it counts all the flex-grow numbers and after that it devides the whole space with the collected number
+                      and after that gained value is given according to flex-grow numbers to each element.
+                              e.g.--> 
+                                     lets suppose i have four elements and first element has 1 and other elements has 1.
+                                     now the remaining space will be divided into 5 parts. first 2 parts will be given to the first element
+                                     and other elements will only get one-one part.
+         
+     FLEX-SHRINK:- 
+                  --> It basically determines how much the elements will shrink relative to each other inside the container when there isn't 
+                      enough space.
+                  --> It also has values in numbers like 1,2,34,55 etc.
+                  --> the default value is 1.
+                  --> if you write flex-shrink to 10, the selected item will shrink 10 times faster than other items.
+                  --> if 0 is given as its value to any item , the item will not shrink. and now if you use flex-wrap:wrap, then since the
+                      item won't shrink means, it will go to the next line, without shrinking.
+  REMEMBER FEW POINTS:- 
+                      --> flex-shrink will only work with width and flex-basis property. if you give flex-grow, it will not work and also
+                          if you write flex-grow to 1 and flex-basis to 0 , it will not work.
+                
+                  
+     FLEX-BASIS:- 
+                  --> it is given flex items.
+                  --> it is very similar to width property.
+                  --> it basically defines the initial main size of the element before any remaining space is distributed.
+                  --> so for example if you set the flex basis of a flex item to let's say 100 pixels, you are saying  to the browser hey
+                      as long as there's enough space remaining in the flex container i want this flex item width to start at 100 pixels 
+                      and be never less than that and if there is no space available it will shrink.
+                  --> it is expressed in px,%,ems,rems...
+                  --> flex-basis:auto; --> an auto will just set the starting width of the element depending on its content.
+                  --> flex-basis:0; --> 0 will make the elements ignore their content and will make each flex element has the same width
+                                        regardless of their content. Use flex-grow to 1 and flex-basis to 0 and you will see the magic.
+                  --> it takes values like 0,auto,px,%,ems,rems etc.
+                 ==> --> flex_basis and width are very similar. width and flex-basis will both shrink.
+                      . and if you set it to auto. the width of each element will be according to its content.
+                  --> if you set flex-grow to 1 which will distribute the remaining space to the all elements and the if you write 
+                      flex-basis to 0. you will see that whole space will be distributed equally with each elements and ignore the its content.
+ 
+      NOTE:-  YOU CAN ALSO GIVE FLEX GROW ,FLEX SHRINK, FLEX BASIS TOGETHER LIKE THIS.
+                flex: 1(flex-grow) 1(flex-shrink) 0(flex-basis);
+             --> An element with a flex-shrink value of 0 will not shrink as our page gets smaller. This is only true if there is no flex-grow
+                 value on this element. If there is a flex-grow value, the element won’t shrink smaller than it’s content.
+             -->flex: 1 0 200px; --> If you have one element that has a flex-basis of 200px, flex-grow of 1, and flex-shrink of 0, this element
+                will be at minimum 200px wide, but it will be allowed to grow if there is extra space. In this case, you can think 
+                of the flex-basis as being a minimum width.
+             -->flex: 0 1 200px; --> Let’s consider the opposite case. Let’s set a flex-basis of 200px again, but let’s only set a flex-shrink 
+                of 1, flex-grow will be 0. Here we will have an element that is 200px at it’s largest, but it’s allowed to be smaller. Here 
+                flex-basis is acting like a maximum width.
+             -->An element that has a flex shrink value of 0, a flex grow value of 0, but has a flex basis pixel value, will only ever be 
+                that pixel value size. It won’t shrink and it won’t grow. This would be the same as setting a pixel value to the width property.
+             -->flex: 1 0 auto; --> Auto is a cool keyword that lets us tell an element to be the size of its content. This is useful when
+                we don’t want to give the element a min size or max size.
+             -->flex: 0 1 auto; --> This is the default value the flex property is given.
+  TO KNOW MORE OF FLEX-BASIS/FLEX-GROW/FLEX-SHIRINK PROPERTY GO TO THE GIVEN LINK:-
+             -->https://medium.com/@tiffnogueira/understanding-flex-shrink-flex-grow-and-flex-basis-and-using-these-properties-to-their-full-e4b4afd2c930#:~:text=An%20element%20that%20has%20a,value%20to%20the%20width%20property.
+                
+                                     
+     
+
+
+                        
+                                         
+
+
+
+
+
+
+
+
+            <~~~~~~``````````///////ALL THE PROPERTIES AND ITS VALUE///////```````~~~~~~~~~~>
+
+               
+       FLEX-FLOW:-
+                  flex-flow:row/column/row-reverse/column-reverse;
+       FLEX-WRAP:-
+                  flex-wrap:wrap/wrap-reverse;
+       JUSTIFY-CONTENT:-
+                  justify-content:flex-start/flex-end/center/space-between/space-around;
+       ALIGN-ITEMS:-
+                  align-items:flex-start/flex-end/center/stretch;
+       ALIGN-SELF:-
+                  align-self:flex-start/flex-end/center/stretch;
+       ALIGN-CONTENT:-
+                  align-content:flex-start/flex-end/center/space-around/space-between;
+       ORDER:-
+              order:0/-1/-55/55/66/235/2/anyNumber.
+       FLEX-GROW:-
+              flex-grow:1/2/3/4/...
+       FLEX-SHRINK:-
+                    flex-shrink:1,2,34,55,...
+       FLEX-BASIS:-
+                    flex-basis:0,auto,px,%,ems,rems etc.
+                    
+       
+                  
+     
+        
+                  
+       
+
+
+
+
+
+
+
+
+	
